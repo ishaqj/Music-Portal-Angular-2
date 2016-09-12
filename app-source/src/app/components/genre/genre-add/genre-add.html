@@ -1,0 +1,28 @@
+<div class="row">
+  <div class="col-xs-12">
+  <div class="alert alert-success" *ngIf="successMsg">Genre added! <button type="button" class="btn btn-primary" (click)="navigateBack()">Go Back</button></div>
+  <div class="alert alert-danger" *ngIf="errorMsg">Something went wrong! <button type="button" class="btn btn-primary" (click)="navigateBack()">Go Back</button></div>
+  <form [formGroup]="genreForm" (ngSubmit)="onSubmit()">
+    <div class="row">
+      <div class="col-xs-12">
+        <div class="form-group">
+          <label for="genre">Genre</label>
+          <small *ngIf="genreForm.controls.genre.hasError('required')" class="text-danger clearfix">Required.</small>
+          <input
+            type="text"
+            id="genre"
+            class="form-control"
+            formControlName="genre">
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-xs-12">
+        <button type="submit" class="btn btn-success" [disabled]="!genreForm.valid">Save</button>
+        <a class="btn btn-danger" (click)="onCancel()">Cancel</a>
+      </div>
+    </div>
+  </form>
+  </div>
+</div>
+

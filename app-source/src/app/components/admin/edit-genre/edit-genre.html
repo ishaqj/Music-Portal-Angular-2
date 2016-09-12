@@ -1,0 +1,22 @@
+<div class="row">
+  <div class="container">
+    <table class="table table-bordered">
+      <thead>
+      <tr>
+        <th>Artist</th>
+        <th>Edit</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr *ngFor="let genre of genres">
+        <td>
+          {{genre.name}}
+        </td>
+        <td>
+          <a [routerLink]="[genre.id]">Edit</a>
+        </td>
+      </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

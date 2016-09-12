@@ -1,0 +1,72 @@
+<div *ngIf="enable">
+<div class="row">
+  <div class="alert alert-success" *ngIf="successMsg">Soundtrack updated! <button type="button" class="btn btn-primary" (click)="navigateBack()">Go Back</button></div>
+  <div class="alert alert-danger" *ngIf="errorMsg">Something went wrong! <button type="button" class="btn btn-primary" (click)="navigateBack()">Go Back</button></div>
+  <div  class="col-xs-12">
+    <form [formGroup]="soundtrackForm"  (ngSubmit)="onSubmit()">
+      <div class="row">
+        <div class="col-xs-12">
+          <div class="form-group">
+            <label for="soundtrack">Soundtrack</label>
+            <input
+              type="text"
+              id="soundtrack"
+              class="form-control"
+              formControlName="soundtrack">
+            <small *ngIf="soundtrackForm.controls.soundtrack.hasError('required')" class="text-danger clearfix">Required.</small>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-xs-12">
+          <div class="form-group">
+            <label for="path">URL</label>
+            <input
+              type="text"
+              id="path"
+              class="form-control"
+              formControlName="path">
+            <small *ngIf="soundtrackForm.controls.path.hasError('required')" class="text-danger clearfix">Required.</small>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-xs-12">
+          <div class="form-group">
+            <label for="artist_id">Artist</label>
+            <select
+              class="form-control"
+              id="artist_id"
+              formControlName="artist_id">
+              <option [value]="artist.id" *ngFor="let artist of artists">{{artist.name == soundtrack.artist ? soundtrack.artist : artist.name }}</option>
+            </select>
+            <small *ngIf="soundtrackForm.controls.artist_id.hasError('required')" class="text-danger clearfix">Required.</small>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-xs-12">
+          <div class="form-group">
+            <label for="genre">Genre</label>
+            <select
+              class="form-control"
+              id="genre_id"
+              formControlName="genre_id">
+              <option [value]="genre.id" *ngFor="let genre of genres">{{genre.name == soundtrack.genre ? soundtrack.genre : genre.name }}</option>
+            </select>
+            <small *ngIf="soundtrackForm.controls.genre_id.hasError('required')" class="text-danger clearfix">Required.</small>
+          </div>
+        </div>
+      </div>
+
+
+      <div class="row">
+        <div class="col-xs-12">
+          <button type="submit" class="btn btn-success" [disabled]="!soundtrackForm.valid">Save</button>
+          <a class="btn btn-danger" (click)="onCancel()" >Cancel</a>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>
+</div>

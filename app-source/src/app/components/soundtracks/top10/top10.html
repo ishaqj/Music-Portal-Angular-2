@@ -1,0 +1,20 @@
+<div class="row">
+  <div class="page-header">
+    <h1>Top 10 Songs</h1>
+  </div>
+  <div class="container">
+    <div class="row">
+      <div class="panel panel-default">
+        <div class="panel-heading">
+          Most Popular Songs
+        </div>
+        <div class="panel-body" *ngFor="let soundtracks of top10; let i = index">
+          <span class="label label-default">#{{i+1}}</span>
+          <span><a  href="javascript:void(0)" class="plManager" data-action="add" [attr.data-song]="soundtracks.id"  [attr.data-mp3]="soundtracks.path" [attr.data-title]="soundtracks.soundtrack" [attr.data-artist]="soundtracks.name" [attr.data-cover]="soundtracks.image" [attr.data-id]="soundtracks.id">{{soundtracks.soundtrack}}</a></span>
+
+        </div>
+        <hr>
+      </div>
+    </div>
+  </div>
+</div>

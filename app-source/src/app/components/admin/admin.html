@@ -1,0 +1,17 @@
+<div class="row">
+  <div class="container">
+    <ul class="nav nav-tabs">
+      <li><a [routerLink]="['/admin']">Home</a></li>
+      <li routerLinkActive="active"><a [routerLink]="['artist/new']">Add Artist</a></li>
+      <li routerLinkActive="active"><a [routerLink]="['artist/edit']">Edit Artist</a></li>
+      <li routerLinkActive="active"><a [routerLink]="['soundtrack/new']">Add Soundtrack</a></li>
+      <li routerLinkActive="active"><a [routerLink]="['soundtrack/edit']">Edit Soundtrack</a></li>
+      <li routerLinkActive="active"><a [routerLink]="['genre/new']">Add Genre</a></li>
+      <li routerLinkActive="active"><a [routerLink]="['genre/edit']">Edit Genre</a></li>
+    </ul>
+  </div>
+  <br>
+  <div class="col-md-12">
+  <router-outlet></router-outlet>
+  </div>
+</div>

@@ -1,0 +1,91 @@
+<div class="row">
+  <div class="alert alert-success" *ngIf="successMsg">Soundtrack(s) added! <button type="button" class="btn btn-primary" (click)="navigateBack()">Go Back</button></div>
+  <div class="alert alert-danger" *ngIf="errorMsg">Something went wrong! <button type="button" class="btn btn-primary" (click)="navigateBack()">Go Back</button></div>
+  <div  class="col-xs-12">
+    <form [formGroup]="soundtrackForm"  (ngSubmit)="onSubmit()">
+      <div class="row">
+        <div class="col-xs-12">
+          <div class="form-group">
+            <label for="artist">Artist</label>
+            <select
+              class="form-control"
+              id="artist"
+              formControlName="artist">
+              <option value="" disabled selected hidden>Select Artist...</option>
+              <option *ngFor="let artist of artists">{{artist}}</option>
+            </select>
+            <small *ngIf="soundtrackForm.controls.artist.hasError('required')" class="text-danger clearfix">Required.</small>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-xs-12">
+          <div class="form-group">
+            <label for="genre">Genre</label>
+            <select
+              class="form-control"
+              id="genre"
+              formControlName="genre">
+              <option value="" disabled selected hidden>Select Genre...</option>
+              <option *ngFor="let genre of genres">{{genre}}</option>
+            </select>
+            <small *ngIf="soundtrackForm.controls.genre.hasError('required')" class="text-danger clearfix">Required.</small>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-xs-12">
+
+          <ul class="list-group" formArrayName="soundtrack">
+            <div class="row"
+                 *ngFor="let soundtrack of soundtrackForm.controls['soundtrack'].controls; let i = index">
+              <div formGroupName="{{i}}">
+                <div class="form-group col-sm-5">
+                  <input
+                    type="text"
+                    placeholder="Song name"
+                    class="form-control"
+                    formControlName="song">
+                  <small *ngIf="soundtrackForm.controls['soundtrack'].controls[i].controls.song.hasError('required')" class="text-danger clearfix">Required.</small>
+                </div>
+                <div class="col-sm-5">
+                  <input
+                    type="text"
+                    placeholder="URL"
+                    class="form-control"
+                    formControlName="path">
+                  <small *ngIf="soundtrackForm.controls['soundtrack'].controls[i].controls.path.hasError('required')" class="text-danger clearfix">Required.</small>
+                </div>
+                <div class="col-sm-2">
+                  <button class="btn btn-danger" (click)="onRemoveItem(i)">X</button>
+                </div>
+              </div>
+            </div>
+
+          </ul>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-xs-12">
+          <div class="row">
+            <div class="col-md-5"><input type="text" id="song" placeholder="Song name" class="form-control" #song></div>
+            <div class="col-md-5"><input type="text" id="path" placeholder="URL" class="form-control" #path></div>
+            <div class="col-md-2">
+              <button
+                type="button"
+                class="btn btn-primary"
+                (click)="onAddItem(song.value, path.value)">+</button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <hr>
+      <div class="row">
+        <div class="col-xs-12">
+          <button type="submit" class="btn btn-success" [disabled]="!soundtrackForm.valid">Save</button>
+          <a class="btn btn-danger" (click)="onCancel()">Cancel</a>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>

@@ -1,0 +1,12 @@
+<div class="row">
+  <div class="page-header">
+    <h1>Artists</h1>
+  </div>
+  <div class="container">
+    <div class="col-md-2" *ngFor="let artist of artists">
+      <a [routerLink]="['/artist', artist.id]"><img  height="150" width="150" [src]="artist.image"></a>
+       <div><a [routerLink]="['/artist', artist.id]">{{artist.name}}</a></div>
+    </div>
+  </div>
+</div>
+
