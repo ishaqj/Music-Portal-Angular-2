@@ -4770,6 +4770,7 @@ webpackJsonp([1],[
 	        this.update_artist = "artists/";
 	        this.storeArtist = "artists/store";
 	        this.listArtists = "artistlist";
+	        this.mainPageArtist = 'artistmain';
 	        this.soundtrack = "soundtrack";
 	        this.fetchsong = "soundtrack/";
 	        this.storeSoundtrack = "soundtrack/store";
@@ -4789,6 +4790,9 @@ webpackJsonp([1],[
 	    //ARTIST
 	    APIService.prototype.getAllArtists = function () {
 	        return this._http.get(this.apiUrl + this.artists).map(function (res) { return res.json(); });
+	    };
+	    APIService.prototype.listMainPageArtists = function () {
+	        return this._http.get(this.apiUrl + this.mainPageArtist).map(function (res) { return res.json(); });
 	    };
 	    APIService.prototype.listArtist = function () {
 	        return this._http.get(this.apiUrl + this.listArtists).map(function (res) { return res.json(); });
@@ -26274,7 +26278,7 @@ webpackJsonp([1],[
 	    }
 	    ArtistList.prototype.ngOnInit = function () {
 	        var _this = this;
-	        this._apiService.getAllArtists().subscribe(function (data) { return _this.artists = data; }, function (error) { return console.log(error); });
+	        this._apiService.listMainPageArtists().subscribe(function (data) { return _this.artists = data; }, function (error) { return console.log(error); });
 	    };
 	    ArtistList = __decorate([
 	        core_1.Component({
@@ -29536,7 +29540,7 @@ webpackJsonp([1],[
 /* 932 */
 /***/ function(module, exports) {
 
-	module.exports = "<div class=\"row\">\n  <div *ngFor=\"let artist of artistDetails.artists\">\n    <div class=\"page-header\"><h1>{{artist.name}}</h1></div>\n    <div class=\"container\">\n      <div class=\"row\">\n      <div class=\"col-md-3\">\n        <img src=\"{{artist.image}}\" class=\"img-thumbnail\" alt=\"artist.name\" width=\"304\" height=\"236\">\n      </div>\n      <div class=\"col-md-8\">\n        {{artist.bio}}\n      </div>\n      </div>\n      <div class=\"row\">\n        <div class=\"col-md-3 margin-top-5\">\n          <span\n            class=\"label label-primary labelcursor\"\n            *ngFor=\"let genre of artist.genre\"\n            [routerLink]=\"['/genre',genre.id]\">\n          {{genre.name}} </span>\n        </div>\n        <div class=\"col-md-9\">\n          <div *ngFor=\"let soundtracks of artist.soundtrack\">\n            <span>\n            <a  href=\"javascript:void(0)\" class=\"plManager\" data-action=\"add\" [attr.data-song]=\"soundtracks.id\"  [attr.data-mp3]=\"soundtracks.path\" [attr.data-title]=\"soundtracks.soundtrack\" [attr.data-artist]=\"artist.name\" [attr.data-cover]=\"artist.image\" [attr.data-id]=\"soundtracks.id\">{{soundtracks.soundtrack}}</a>\n            </span>\n            <hr>\n          </div>\n        </div>\n      </div>\n    </div>\n  </div>\n</div>\n\n\n"
+	module.exports = "<div class=\"row\">\n  <div *ngFor=\"let artist of artistDetails.artists\">\n    <div class=\"page-header\"><h1>{{artist.name}}</h1></div>\n    <div class=\"container\">\n      <div class=\"row\">\n      <div class=\"col-md-3\">\n        <img src=\"{{artist.image}}\" class=\"img-thumbnail\" alt=\"artist.name\" width=\"304\" height=\"236\">\n        <span\n          class=\"label label-primary labelcursor\"\n          *ngFor=\"let genre of artist.genre\"\n          [routerLink]=\"['/genre',genre.id]\">\n          {{genre.name}}\n        </span>\n      </div>\n      <div class=\"col-md-8\">\n        <span>{{artist.bio}}</span>\n      </div>\n      </div>\n      <div class=\"row\">\n        <div class=\"col-md-9 col-md-offset-3\">\n          <div *ngFor=\"let soundtracks of artist.soundtrack\">\n            <span>\n            <a  href=\"javascript:void(0)\" class=\"plManager\" data-action=\"add\" [attr.data-song]=\"soundtracks.id\"  [attr.data-mp3]=\"soundtracks.path\" [attr.data-title]=\"soundtracks.soundtrack\" [attr.data-artist]=\"artist.name\" [attr.data-cover]=\"artist.image\" [attr.data-id]=\"soundtracks.id\">{{soundtracks.soundtrack}}</a>\n            </span>\n            <hr>\n          </div>\n        </div>\n      </div>\n    </div>\n  </div>\n</div>\n\n\n"
 
 /***/ },
 /* 933 */
