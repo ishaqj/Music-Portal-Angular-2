@@ -50,7 +50,7 @@
             <label for="genre">Genre</label>
             <select
               class="form-control"
-              id="genre_id"
+              id="genre"
               formControlName="genre_id">
               <option [value]="genre.id" *ngFor="let genre of genres">{{genre.name == soundtrack.genre ? soundtrack.genre : genre.name }}</option>
             </select>
@@ -58,8 +58,6 @@
           </div>
         </div>
       </div>
-
-
       <div class="row">
         <div class="col-xs-12">
           <button type="submit" class="btn btn-success" [disabled]="!soundtrackForm.valid">Save</button>

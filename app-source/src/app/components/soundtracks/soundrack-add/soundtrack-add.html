@@ -53,15 +53,20 @@
                     type="text"
                     placeholder="URL"
                     class="form-control"
-                    formControlName="path">
+                    formControlName="path" #song>
                   <small *ngIf="soundtrackForm.controls['soundtrack'].controls[i].controls.path.hasError('required')" class="text-danger clearfix">Required.</small>
                 </div>
                 <div class="col-sm-2">
                   <button class="btn btn-danger" (click)="onRemoveItem(i)">X</button>
                 </div>
+                <div class="col-xs-12">
+                  <small class="text-muted clearfix">Preview</small>
+                  <audio controls>
+                    <source [src]="song.value" type="audio/mpeg">
+                  </audio>
+                </div>
               </div>
             </div>
-
           </ul>
         </div>
       </div>
