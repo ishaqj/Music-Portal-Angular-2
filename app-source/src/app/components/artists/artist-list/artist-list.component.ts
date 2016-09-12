@@ -9,11 +9,11 @@ import {APIService} from '../../../services/api.service';
 
 export class ArtistList {
     artists = [];
-  
+
     constructor(private _apiService: APIService) {}
 
     ngOnInit() {
-        this._apiService.getAllArtists().subscribe(data => this.artists = data, error => console.log(error));
+        this._apiService.listMainPageArtists().subscribe(data => this.artists = data, error => console.log(error));
     }
 
 

@@ -13,6 +13,7 @@ export class APIService {
     private update_artist: string = "artists/";
     private storeArtist: string = "artists/store";
     private listArtists: string = "artistlist";
+    private mainPageArtist:string = 'artistmain';
 
     private soundtrack: string = "soundtrack";
     private fetchsong: string = "soundtrack/";
@@ -40,6 +41,10 @@ export class APIService {
       return this._http.get(this.apiUrl + this.artists).map(res => res.json());
 
       }
+
+    listMainPageArtists(): Observable<any> {
+      return this._http.get(this.apiUrl + this.mainPageArtist).map(res => res.json());
+    }
 
     listArtist(): Observable<any> {
       return this._http.get(this.apiUrl + this.listArtists).map(res => res.json());
