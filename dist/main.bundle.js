@@ -9558,7 +9558,7 @@ webpackJsonp([1],[
 	var core_1 = __webpack_require__(1);
 	var Configuration = (function () {
 	    function Configuration() {
-	        this.Server = "https://67.222.135.20/~sallu/";
+	        this.Server = "http://67.222.135.20/~sallu/";
 	        this.ApiUrl = "api/";
 	        this.ServerWithApiUrl = this.Server + this.ApiUrl;
 	    }
