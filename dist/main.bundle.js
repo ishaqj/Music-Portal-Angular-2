@@ -29540,7 +29540,7 @@ webpackJsonp([1],[
 /* 932 */
 /***/ function(module, exports) {
 
-	module.exports = "<div class=\"row\">\n  <div *ngFor=\"let artist of artistDetails.artists\">\n    <div class=\"page-header\"><h1>{{artist.name}}</h1></div>\n    <div class=\"container\">\n      <div class=\"row\">\n      <div class=\"col-md-3\">\n        <img src=\"{{artist.image}}\" class=\"img-thumbnail\" alt=\"artist.name\" width=\"304\" height=\"236\">\n        <span\n          class=\"label label-primary labelcursor\"\n          *ngFor=\"let genre of artist.genre\"\n          [routerLink]=\"['/genre',genre.id]\">\n          {{genre.name}}\n        </span>\n      </div>\n      <div class=\"col-md-8\">\n        <span>{{artist.bio}}</span>\n      </div>\n      </div>\n      <div class=\"row\">\n        <div class=\"col-md-9 col-md-offset-3\">\n          <div *ngFor=\"let soundtracks of artist.soundtrack\">\n            <span>\n            <a  href=\"javascript:void(0)\" class=\"plManager\" data-action=\"add\" [attr.data-song]=\"soundtracks.id\"  [attr.data-mp3]=\"soundtracks.path\" [attr.data-title]=\"soundtracks.soundtrack\" [attr.data-artist]=\"artist.name\" [attr.data-cover]=\"artist.image\" [attr.data-id]=\"soundtracks.id\">{{soundtracks.soundtrack}}</a>\n            </span>\n            <hr>\n          </div>\n        </div>\n      </div>\n    </div>\n  </div>\n</div>\n"
+	module.exports = "<div class=\"row\">\n  <div *ngFor=\"let artist of artistDetails.artists\">\n    <div class=\"page-header\"><h1>{{artist.name}}</h1></div>\n    <div class=\"container\">\n      <div class=\"row\">\n      <div class=\"col-xs-12 col-md-3\">\n        <img src=\"{{artist.image}}\" class=\"img-responsive img-thumbnail\" alt=\"artist.name\">\n        <div class=\"clearfix\"></div>\n        <span\n          class=\"label label-primary labelcursor\"\n          *ngFor=\"let genre of artist.genre\"\n          [routerLink]=\"['/genre',genre.id]\">\n          {{genre.name}}\n        </span>\n      </div>\n      <div class=\"col-xs-12 col-md-8\">\n        <span>{{artist.bio}}</span>\n      </div>\n      </div>\n      <div class=\"row\">\n        <div class=\"col-xs-12 col-md-9 col-md-offset-3\">\n          <hr>\n          <div *ngFor=\"let soundtracks of artist.soundtrack\">\n            <span>\n            <a  href=\"javascript:void(0)\" class=\"plManager\" data-action=\"add\" [attr.data-song]=\"soundtracks.id\"  [attr.data-mp3]=\"soundtracks.path\" [attr.data-title]=\"soundtracks.soundtrack\" [attr.data-artist]=\"artist.name\" [attr.data-cover]=\"artist.image\" [attr.data-id]=\"soundtracks.id\">{{soundtracks.soundtrack}}</a>\n            </span>\n            <hr>\n          </div>\n        </div>\n      </div>\n    </div>\n  </div>\n</div>\n"
 
 /***/ },
 /* 933 */
@@ -29552,13 +29552,13 @@ webpackJsonp([1],[
 /* 934 */
 /***/ function(module, exports) {
 
-	module.exports = "<div class=\"row\">\n  <div class=\"page-header\">\n    <h1>Artists</h1>\n  </div>\n  <div class=\"container\">\n    <div class=\"col-md-2\" *ngFor=\"let artist of artists\">\n      <a [routerLink]=\"['/artist', artist.id]\"><img  height=\"150\" width=\"150\" [src]=\"artist.image\"></a>\n       <div><a [routerLink]=\"['/artist', artist.id]\">{{artist.name}}</a></div>\n    </div>\n  </div>\n</div>\n\n"
+	module.exports = "<div class=\"row\">\n  <div class=\"page-header\">\n    <h1>Artists</h1>\n  </div>\n  <div class=\"container\">\n    <div class=\"col-xs-6 col-md-2\" *ngFor=\"let artist of artists\">\n      <a [routerLink]=\"['/artist', artist.id]\"><img  class=\"img-responsive\" height=\"150\" width=\"150\" [src]=\"artist.image\"></a>\n       <div><a [routerLink]=\"['/artist', artist.id]\">{{artist.name}}</a></div>\n    </div>\n  </div>\n</div>\n\n"
 
 /***/ },
 /* 935 */
 /***/ function(module, exports) {
 
-	module.exports = "<div class=\"row\">\n  <div class=\"container\">\n    <div class=\"panel panel-default\">\n      <div class=\"panel-heading\">Latest Artists</div>\n      <div class=\"panel-body\">\n        <div class=\"col-md-3\" *ngFor=\"let artist of artists.artists\">\n          <a [routerLink]=\"['/artist', artist.id]\"><img  height=\"200\" width=\"200\" [src]=\"artist.image\"></a>\n          <div><a [routerLink]=\"['/artist', artist.id]\">{{artist.name}}</a></div>\n        </div>\n      </div>\n    </div>\n  </div>\n</div>\n\n"
+	module.exports = "<div class=\"row\">\n  <div class=\"container\">\n    <div class=\"panel panel-default\">\n      <div class=\"panel-heading\">Latest Artists</div>\n      <div class=\"panel-body\">\n        <div class=\"col-xs-6 col-md-3\" *ngFor=\"let artist of artists.artists\">\n          <a [routerLink]=\"['/artist', artist.id]\"><img  class=\"img-responsive\" height=\"200\" width=\"200\" [src]=\"artist.image\"></a>\n          <div><a [routerLink]=\"['/artist', artist.id]\">{{artist.name}}</a></div>\n        </div>\n      </div>\n    </div>\n  </div>\n</div>\n\n"
 
 /***/ },
 /* 936 */
@@ -29594,7 +29594,7 @@ webpackJsonp([1],[
 /* 941 */
 /***/ function(module, exports) {
 
-	module.exports = "<div class=\"row\">\n  <div class=\"page-header\">\n    <h1>Genres</h1>\n  </div>\n  <div class=\"container\">\n    <div class=\"col-md-4\" *ngFor=\"let genre of genres\">\n      <div class=\"well\"><a [routerLink]=\"['/genre', genre.id]\"><h2>{{genre.name}}</h2></a></div>\n    </div>\n  </div>\n</div>\n"
+	module.exports = "<div class=\"row\">\n  <div class=\"page-header\">\n    <h1>Genres</h1>\n  </div>\n  <div class=\"container\">\n    <div class=\"col-xs-12 col-md-4\" *ngFor=\"let genre of genres\">\n      <div class=\"well\"><a [routerLink]=\"['/genre', genre.id]\"><h2>{{genre.name}}</h2></a></div>\n    </div>\n  </div>\n</div>\n"
 
 /***/ },
 /* 942 */
@@ -29618,7 +29618,7 @@ webpackJsonp([1],[
 /* 945 */
 /***/ function(module, exports) {
 
-	module.exports = "<nav class=\"navbar navbar-default\">\n  <div class=\"container-fluid\">\n    <div class=\"navbar-header\">\n      <a class=\"navbar-brand\" [routerLink]=\"['/']\">Music App</a>\n    </div>\n\n    <div class=\"collapse navbar-collapse\" id=\"bs-example-navbar-collapse-1\">\n      <ul class=\"nav navbar-nav\">\n        <li routerLinkActive=\"active\"><a [routerLink]=\"['/browseartists']\">Artists</a></li>\n        <li routerLinkActive=\"active\"><a [routerLink]=\"['/genres']\">Genre</a></li>\n        <li routerLinkActive=\"active\"><a [routerLink]=\"['/top10']\">Top 10</a></li>\n      </ul>\n      <ul class=\"nav navbar-nav navbar-right\">\n        <li *ngIf=\"!isAuth()\" routerLinkActive=\"active\"><a [routerLink]=\"['/login']\">Login</a></li>\n        <li *ngIf=\"!isAuth()\" routerLinkActive=\"active\"><a [routerLink]=\"['/signup']\">Register</a></li>\n        <li *ngIf=\"isAdmin() && isAuth()\" routerLinkActive=\"active\"><a [routerLink]=\"['/admin']\">Admin Panel</a></li>\n        <li *ngIf=\"isAuth()\"><a (click)=\"logout()\" style=\"cursor: pointer;\">Logout</a></li>\n      </ul>\n    </div>\n  </div>\n</nav>\n"
+	module.exports = "<nav class=\"navbar navbar-default\">\n  <div class=\"container-fluid\">\n    <div class=\"navbar-header\">\n      <a class=\"navbar-brand\" [routerLink]=\"['/']\">Music App</a>\n    </div>\n      <ul class=\"nav navbar-nav\">\n        <li routerLinkActive=\"active\"><a [routerLink]=\"['/browseartists']\">Artists</a></li>\n        <li routerLinkActive=\"active\"><a [routerLink]=\"['/genres']\">Genre</a></li>\n        <li routerLinkActive=\"active\"><a [routerLink]=\"['/top10']\">Top 10</a></li>\n      </ul>\n      <ul class=\"nav navbar-nav navbar-right\">\n        <li *ngIf=\"!isAuth()\" routerLinkActive=\"active\"><a [routerLink]=\"['/login']\">Login</a></li>\n        <li *ngIf=\"!isAuth()\" routerLinkActive=\"active\"><a [routerLink]=\"['/signup']\">Register</a></li>\n        <li *ngIf=\"isAdmin() && isAuth()\" routerLinkActive=\"active\"><a [routerLink]=\"['/admin']\">Admin Panel</a></li>\n        <li *ngIf=\"isAuth()\"><a (click)=\"logout()\" style=\"cursor: pointer;\">Logout</a></li>\n      </ul>\n  </div>\n</nav>\n"
 
 /***/ },
 /* 946 */,
